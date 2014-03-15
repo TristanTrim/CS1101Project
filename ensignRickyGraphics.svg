@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.1 r9760"
+   sodipodi:docname="New document 1">
+  <defs
+     id="defs4">
+    <filter
+       id="filter3019"
+       inkscape:label="Color emboss"
+       x="0"
+       y="0"
+       width="1"
+       height="1"
+       inkscape:menu="Bumps"
+       inkscape:menu-tooltip="Classic or colorized emboss effect: grayscale, color and 3D relief"
+       color-interpolation-filters="sRGB">
+      <feColorMatrix
+         id="feColorMatrix3021"
+         type="luminanceToAlpha"
+         result="result2" />
+      <feDiffuseLighting
+         id="feDiffuseLighting3023"
+         surfaceScale="-10"
+         result="result1"
+         diffuseConstant="1"
+         lighting-color="rgb(255,255,255)">
+        <feDistantLight
+           id="feDistantLight3025"
+           azimuth="225"
+           elevation="35" />
+      </feDiffuseLighting>
+      <feFlood
+         id="feFlood3027"
+         flood-opacity="0.5"
+         result="result3"
+         flood-color="rgb(86,172,140)"
+         in="SourceGraphic" />
+      <feComposite
+         id="feComposite3029"
+         in2="result3"
+         result="result4"
+         operator="arithmetic"
+         in="result1"
+         k1="0.5"
+         k2="0.5"
+         k3="1" />
+      <feBlend
+         id="feBlend3031"
+         in2="SourceGraphic"
+         mode="normal"
+         in="result4"
+         result="result91" />
+      <feComposite
+         id="feComposite3033"
+         in2="result91"
+         operator="arithmetic"
+         k2="1"
+         result="result92" />
+      <feComposite
+         id="feComposite3035"
+         in2="SourceGraphic"
+         operator="in" />
+    </filter>
+    <filter
+       id="filter3117"
+       inkscape:label="Combined lighting"
+       inkscape:menu="Bevels"
+       inkscape:menu-tooltip="Basic specular bevel to use for building textures"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur3119"
+         stdDeviation="6"
+         in="SourceGraphic"
+         result="result0" />
+      <feDiffuseLighting
+         id="feDiffuseLighting3121"
+         lighting-color="rgb(255,255,255)"
+         diffuseConstant="1"
+         surfaceScale="4"
+         result="result5">
+        <feDistantLight
+           id="feDistantLight3123"
+           elevation="45"
+           azimuth="235" />
+      </feDiffuseLighting>
+      <feComposite
+         id="feComposite3125"
+         in2="SourceGraphic"
+         k1="1.4"
+         in="result5"
+         result="fbSourceGraphic"
+         operator="arithmetic" />
+      <feGaussianBlur
+         id="feGaussianBlur3127"
+         result="result0"
+         in="fbSourceGraphic"
+         stdDeviation="6" />
+      <feSpecularLighting
+         id="feSpecularLighting3129"
+         specularExponent="25"
+         specularConstant="1"
+         surfaceScale="4"
+         lighting-color="rgb(255,255,255)"
+         result="result1"
+         in="result0">
+        <feDistantLight
+           id="feDistantLight3131"
+           azimuth="235"
+           elevation="45" />
+      </feSpecularLighting>
+      <feComposite
+         id="feComposite3133"
+         in2="result91"
+         k3="1"
+         k2="1"
+         operator="arithmetic"
+         result="result4"
+         in="fbSourceGraphic" />
+      <feComposite
+         id="feComposite3135"
+         in2="SourceGraphic"
+         operator="in"
+         result="result2"
+         in="result4" />
+    </filter>
+    <filter
+       id="filter3137"
+       inkscape:label="Combined lighting"
+       inkscape:menu="Bevels"
+       inkscape:menu-tooltip="Basic specular bevel to use for building textures"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur3139"
+         stdDeviation="6"
+         in="SourceGraphic"
+         result="result0" />
+      <feDiffuseLighting
+         id="feDiffuseLighting3141"
+         lighting-color="rgb(255,255,255)"
+         diffuseConstant="1"
+         surfaceScale="4"
+         result="result5">
+        <feDistantLight
+           id="feDistantLight3143"
+           elevation="45"
+           azimuth="235" />
+      </feDiffuseLighting>
+      <feComposite
+         id="feComposite3145"
+         in2="SourceGraphic"
+         k1="1.4"
+         in="result5"
+         result="fbSourceGraphic"
+         operator="arithmetic" />
+      <feGaussianBlur
+         id="feGaussianBlur3147"
+         result="result0"
+         in="fbSourceGraphic"
+         stdDeviation="6" />
+      <feSpecularLighting
+         id="feSpecularLighting3149"
+         specularExponent="25"
+         specularConstant="1"
+         surfaceScale="4"
+         lighting-color="rgb(255,255,255)"
+         result="result1"
+         in="result0">
+        <feDistantLight
+           id="feDistantLight3151"
+           azimuth="235"
+           elevation="45" />
+      </feSpecularLighting>
+      <feComposite
+         id="feComposite3153"
+         in2="result91"
+         k3="1"
+         k2="1"
+         operator="arithmetic"
+         result="result4"
+         in="fbSourceGraphic" />
+      <feComposite
+         id="feComposite3155"
+         in2="SourceGraphic"
+         operator="in"
+         result="result2"
+         in="result4" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="303.666"
+     inkscape:cy="670.08172"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1241"
+     inkscape:window-height="756"
+     inkscape:window-x="39"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3157"
+       transform="matrix(0.84360509,0,0,0.84360509,28.468582,90.309996)"
+       inkscape:export-filename="/Users/Randy/Desktop/CSCI/CSCI1101/Group Project/ensignRickyIcon.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         transform="matrix(0.87459555,0,0,0.87459555,53.386451,45.228977)"
+         id="g3004">
+        <path
+           style="fill:#000000;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 141.42135,644.95765 c 12.36171,-100.02726 10.96275,-198.07754 104.04571,-331.33004 53.17002,97.17619 97.49912,196.21362 100.00511,304.05592 -33.93442,-65.28399 -41.46385,-91.17719 -68.05969,-98.7882 -40.73798,7.54128 -95.4916,74.781 -135.99113,126.06232 z"
+           id="path2998"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccc" />
+        <path
+           sodipodi:nodetypes="cccc"
+           inkscape:connector-curvature="0"
+           id="path3000"
+           d="m 156.20881,599.96331 c 10.65656,-86.22971 8.73628,-148.61229 88.97958,-263.48422 16.40932,19.20116 63.34878,117.96211 81.9249,216.4008 -44.66994,-105.31384 -124.09878,4.53984 -170.90448,47.08342 z"
+           style="fill:#daaa02;fill-opacity:1;stroke:#000000;stroke-width:0.86206216px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           style="fill:#000000;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 249.28571,358.79075 11.42857,94.28572 23.57143,5.71428 -20,10 1.42857,28.57143 L 250,473.07647 235,497.36218 237.14285,470.21933 218.57142,458.07647 240,450.93361 z"
+           id="path3002"
+           inkscape:connector-curvature="0" />
+      </g>
+      <flowRoot
+         transform="translate(-49.727346,47.857143)"
+         style="font-size:40px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:#ff0000;filter:url(#filter3117);font-family:Sans;-inkscape-font-specification:Sans Bold Italic"
+         id="flowRoot3011"
+         xml:space="preserve"><flowRegion
+           id="flowRegion3013"><rect
+             style="font-size:40px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ff0000;stroke:#ff0000;font-family:Sans;-inkscape-font-specification:Sans Bold Italic"
+             y="429.50504"
+             x="148.57143"
+             height="93.571426"
+             width="330.71429"
+             id="rect3015" /></flowRegion><flowPara
+           id="flowPara3017">ENSIGN RICKY</flowPara></flowRoot>      <flowRoot
+         xml:space="preserve"
+         id="flowRoot3037"
+         style="font-size:40px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:#d40000;filter:url(#filter3137);font-family:Sans;-inkscape-font-specification:Sans Bold Italic"
+         transform="translate(-45.996877,105)"><flowRegion
+           id="flowRegion3039"><rect
+             id="rect3041"
+             width="330.71429"
+             height="93.571426"
+             x="148.57143"
+             y="429.50504"
+             style="font-size:40px;font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ff0000;stroke:#d40000;font-family:Sans;-inkscape-font-specification:Sans Bold Italic" /></flowRegion><flowPara
+           id="flowPara3043">CSCI 1101</flowPara></flowRoot>    </g>
+  </g>
+</svg>
