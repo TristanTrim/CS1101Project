@@ -12,11 +12,11 @@ public class Room
 {
    //instance variables
    String description;
-   String option1;
-   String option2;
-   String option3;
-   String option4;
-   String option5;
+   Option option1;
+   Option option2;
+   Option option3;
+   Option option4;
+   Option option5;
    
    //no arg constructor
    public Room()
@@ -34,47 +34,47 @@ public class Room
       return description;
    }   
    
-   public void setOption1(String s)
+   public void setOption1(Option s)
    {
       option1 = s;
    }
-   public String getOption1()
+   public Option getOption1()
    {
       return option1;
    }   
    
-   public void setOption2(String s)
+   public void setOption2(Option s)
    {
       option2 = s;
    }
-   public String getOption2()
+   public Option getOption2()
    {
       return option2;
    }
    
-   public void setOption3(String s)
+   public void setOption3(Option s)
    {
       option3 = s;
    }
-   public String getOption3()
+   public Option getOption3()
    {
       return option3;
    }
    
-   public void setOption4(String s)
+   public void setOption4(Option s)
    {
       option4 = s;
    }
-   public String getOption4()
+   public Option getOption4()
    {
       return option4;
    }
    
-   public void setOption5(String s)
+   public void setOption5(Option s)
    {
       option5 = s;
    }
-   public String getOption5()
+   public Option getOption5()
    {
       return option5;
    }

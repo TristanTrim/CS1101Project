@@ -92,6 +92,8 @@ public class TextAdventure extends JFrame implements ActionListener
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setVisible(true);
 
+      //update the description
+      panel_RoomText_Label.setText(theShip.getCurrentRoom().getDescription());
       
    }
    
@@ -101,15 +103,18 @@ public class TextAdventure extends JFrame implements ActionListener
       
       while (gameRunning)
       {
-         //update the description
-         panel_RoomText_Label.setText(theShip.getCurrentRoom().getDescription());
          
          //update the options
-         button1.setText(theShip.getCurrentRoom().getOption1());
-         button2.setText(theShip.getCurrentRoom().getOption2());
-         button3.setText(theShip.getCurrentRoom().getOption3());
-         button4.setText(theShip.getCurrentRoom().getOption4());
-         button5.setText(theShip.getCurrentRoom().getOption5());
+         button1.setText(theShip.getCurrentRoom().getOption1().toString());
+         button1.addActionListener(this);
+         button2.setText(theShip.getCurrentRoom().getOption2().toString());
+         button2.addActionListener(this);
+         button3.setText(theShip.getCurrentRoom().getOption3().toString());
+         button3.addActionListener(this);
+         button4.setText(theShip.getCurrentRoom().getOption4().toString());
+         button4.addActionListener(this);
+         button5.setText(theShip.getCurrentRoom().getOption5().toString());
+         button5.addActionListener(this);
 
          //update items
          panel_Items_Label.setText(thePlayer.displayInventory());
@@ -129,6 +134,19 @@ public class TextAdventure extends JFrame implements ActionListener
    
    public void actionPerformed(ActionEvent e) 
    {
+
+	if(e.getSource()==button1){
+        	panel_RoomText_Label.setText(theShip.getCurrentRoom().getOption1().getDescription());
+	}else if(e.getSource()==button2){
+        	panel_RoomText_Label.setText(theShip.getCurrentRoom().getOption2().getDescription());
+	}else if(e.getSource()==button3){
+        	panel_RoomText_Label.setText(theShip.getCurrentRoom().getOption3().getDescription());
+	}else if(e.getSource()==button4){
+        	panel_RoomText_Label.setText(theShip.getCurrentRoom().getOption4().getDescription());
+	}else if(e.getSource()==button5){
+        	panel_RoomText_Label.setText(theShip.getCurrentRoom().getOption5().getDescription());
+	} 
+	
    }     
 
 }

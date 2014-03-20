@@ -53,11 +53,11 @@ public class Ship
           "sitting in his chair staring at the view screen. He seems<br>" +
           "seems tense and distracted.</html>";
       bridge.setDescription(d);
-      bridge.setOption1("North");
-      bridge.setOption2("East");
-      bridge.setOption3("Talk to Spock");
-      bridge.setOption4("Talk to Kirk");
-      bridge.setOption5("Look at viewscreen");
+      bridge.setOption1(new Option("North", "ya go north"));
+      bridge.setOption2(new Option("East", "ya go east"));
+      bridge.setOption3(new Option("Talk to Spock", "\"Please control your emotions Ricky\""));
+      bridge.setOption4(new Option("Talk to Kirk", "Hmm, You, could go and get tea?"));
+      bridge.setOption5(new Option("Look at viewscreen", "Looks spacy. Nice resolution"));
       
    }
    
