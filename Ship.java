@@ -53,18 +53,30 @@ public class Ship
           "sitting in his chair staring at the view screen. He seems<br>" +
           "seems tense and distracted.</html>";
       bridge.setDescription(d);
-      bridge.setOption1(new Option("North", "ya go north"));
+      bridge.setOption1(new Option("North", "ya go north", 2));
       bridge.setOption2(new Option("East", "ya go east"));
       bridge.setOption3(new Option("Talk to Spock", "\"Please control your emotions Ricky\""));
       bridge.setOption4(new Option("Talk to Kirk", "Hmm, You, could go and get tea?"));
       bridge.setOption5(new Option("Look at viewscreen", "Looks spacy. Nice resolution"));
       
-   }
    
+      //hallway
+      d = "<html>You are in the hallway. It's lonely here for an ensign. <br>" +
+          "The hallway is empty</html>";
+      hallway.setDescription(d);
+      hallway.setOption1(new Option("North", "ya go north"));
+      hallway.setOption2(new Option("East", "ya go east.\n The bridge is pretty bright compared with the hallway.", 0));
+      hallway.setOption3(new Option("Wait", "You wait. It's kinda booring."));
+      hallway.setOption4(new Option("Do a handstand", "That wouldn't be very professional"));
+      hallway.setOption5(new Option("Look at viewscreen", "There's no viewscreen here."));
+      
+   }
+
+
    //get currentLocation
-   public Room getCurrentRoom()
+   public Room getRoomOf(Player player)
    {
-      return rooms[currentRoom];
+      return rooms[player.getCurrentRoom()];
    }   
    
    public void setRoomIndex(int i)

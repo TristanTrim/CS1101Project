@@ -12,6 +12,7 @@ public class Player
 {
    //instance variables
    private int hitPoints;
+   private int currentRoom;
    private Inventory playerInventory;
    
    //no args constructor
@@ -19,6 +20,7 @@ public class Player
    {
       hitPoints = 100;
       playerInventory = new Inventory();
+      currentRoom=0;
    }
    
    //getters and setters
@@ -38,6 +40,16 @@ public class Player
    public Inventory getInventory()
    {
       return playerInventory;
+   }
+
+   public int getCurrentRoom()
+   {
+      return currentRoom;
+   }
+
+   public void setCurrentRoom(int currentRoom)
+   {
+      this.currentRoom=currentRoom;
    }
    
    public String displayInventory()

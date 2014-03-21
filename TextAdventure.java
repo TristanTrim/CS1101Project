@@ -82,7 +82,7 @@ public class TextAdventure extends JFrame implements ActionListener
       
       //create Ship
       theShip = new Ship();
-      panel_RoomText_Label = new JLabel(theShip.getCurrentRoom().getDescription(), SwingConstants.CENTER);
+      panel_RoomText_Label = new JLabel(theShip.getRoomOf(thePlayer).getDescription(), SwingConstants.CENTER);
       panel_RoomText.add(panel_RoomText_Label);
       
        //create a JFrame
@@ -93,7 +93,7 @@ public class TextAdventure extends JFrame implements ActionListener
       setVisible(true);
 
       //update the description
-      panel_RoomText_Label.setText(theShip.getCurrentRoom().getDescription());
+      panel_RoomText_Label.setText(theShip.getRoomOf(thePlayer).getDescription());
       
    }
    
@@ -105,15 +105,15 @@ public class TextAdventure extends JFrame implements ActionListener
       {
          
          //update the options
-         button1.setText(theShip.getCurrentRoom().getOption1().toString());
+         button1.setText(theShip.getRoomOf(thePlayer).getOption1().toString());
          button1.addActionListener(this);
-         button2.setText(theShip.getCurrentRoom().getOption2().toString());
+         button2.setText(theShip.getRoomOf(thePlayer).getOption2().toString());
          button2.addActionListener(this);
-         button3.setText(theShip.getCurrentRoom().getOption3().toString());
+         button3.setText(theShip.getRoomOf(thePlayer).getOption3().toString());
          button3.addActionListener(this);
-         button4.setText(theShip.getCurrentRoom().getOption4().toString());
+         button4.setText(theShip.getRoomOf(thePlayer).getOption4().toString());
          button4.addActionListener(this);
-         button5.setText(theShip.getCurrentRoom().getOption5().toString());
+         button5.setText(theShip.getRoomOf(thePlayer).getOption5().toString());
          button5.addActionListener(this);
 
          //update items
@@ -136,17 +136,25 @@ public class TextAdventure extends JFrame implements ActionListener
    {
 
 	if(e.getSource()==button1){
-        	panel_RoomText_Label.setText(theShip.getCurrentRoom().getOption1().getDescription());
+        	updateText(theShip.getRoomOf(thePlayer).getOption1().decide(thePlayer));
 	}else if(e.getSource()==button2){
-        	panel_RoomText_Label.setText(theShip.getCurrentRoom().getOption2().getDescription());
+        	updateText(theShip.getRoomOf(thePlayer).getOption2().decide(thePlayer));
 	}else if(e.getSource()==button3){
-        	panel_RoomText_Label.setText(theShip.getCurrentRoom().getOption3().getDescription());
+        	updateText(theShip.getRoomOf(thePlayer).getOption3().decide(thePlayer));
 	}else if(e.getSource()==button4){
-        	panel_RoomText_Label.setText(theShip.getCurrentRoom().getOption4().getDescription());
+        	updateText(theShip.getRoomOf(thePlayer).getOption4().decide(thePlayer));
 	}else if(e.getSource()==button5){
-        	panel_RoomText_Label.setText(theShip.getCurrentRoom().getOption5().getDescription());
+        	updateText(theShip.getRoomOf(thePlayer).getOption5().decide(thePlayer));
 	} 
 	
    }     
+
+   // I think it would be good to be able to update the
+   //info text with a general method.
+   public void updateText(String newText)
+   {
+      panel_RoomText_Label.setText(newText);
+   }
+
 
 }
