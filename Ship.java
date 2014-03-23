@@ -65,10 +65,10 @@ public class Ship
           "The hallway is empty</html>";
       hallway.setDescription(d);
       hallway.setOption1(new Option("North", "ya go north"));
-      hallway.setOption2(new Option("East", "ya go east.\n The bridge is pretty bright compared with the hallway.", 0));
+      hallway.setOption2(new Option("East", "ya go east.<br> The bridge is pretty bright compared with the hallway.", 0));
       hallway.setOption3(new Option("Wait", "You wait. It's kinda booring."));
       hallway.setOption4(new Option("Do a handstand", "That wouldn't be very professional"));
-      hallway.setOption5(new Option("Look at viewscreen", "There's no viewscreen here."));
+      hallway.setOption5(new Option("Pick mushroom", "Odd that there would be mushrooms<br>growing in a hallway.", new Item("Mushroom")));
       
    }
 
