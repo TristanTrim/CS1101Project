@@ -10,19 +10,33 @@
 
 public class Item
 {
-   private String Name;
+   private String name;
+   private String description;//add description
 
-   Item(String Name){
-      this.Name=Name;
+   public Item(String name)
+   {
+      this.name=name;
    }
 
-   public String getName(){
-      return(Name);
+   public String getName()
+   {
+      return name;
    }
 
-   public String toString(){
-      return(Name);
-   }
+	public String getDescription() 
+   {
+		return description;
+	}
+
+	public void setDescription(String description) 
+   {
+		this.description = description;
+	}
+   
+	public String toString() 
+   {
+		return name + ":" + description;
+	}
 
   //Please update this method if
   // you edit this class!
@@ -31,7 +45,7 @@ public class Item
   // Item! (used in the Option class
   // to check for key items)
   public boolean equals(Item other) {
-     return(Name.equals(other.getName()));
+     return(name.equals(other.getName()));
   }
 
 }

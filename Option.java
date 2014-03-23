@@ -54,7 +54,7 @@ public class Option
       boolean canDo=true;
       for(Item item : RemovedItems)
       {
-         if(!player.getInventory().getItems().contains(item))
+         if(!player.getInventory().contains(item))
          {
             canDo=false;
          }
@@ -68,12 +68,12 @@ public class Option
         // remove items from user inventory
           for(Item item : RemovedItems)
           {
-	     player.getInventory().getItems().remove(item);
+	     player.getInventory().remove(item);
           }
         // add items to user inventory
           for(Item item : AddedItems)
           {
-             player.getInventory().getItems().add(0,item);
+             player.getInventory().add(0,item);
           }
 
         // Change users room in the ship

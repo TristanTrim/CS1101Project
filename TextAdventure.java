@@ -25,16 +25,19 @@ public class TextAdventure extends JFrame implements ActionListener
    private JPanel panel_GameIcon;
    private JPanel panel_Options;
    private JPanel panel_Items;
-   private JLabel panel_Items_Label;
+   private JPanel panel_Inventory;
+   private JLabel label_Items;
    
    private JButton button1;
    private JButton button2;
    private JButton button3;
    private JButton button4;
    private JButton button5;
+   private JButton[] inventory;//create buttons to display inventory
    
    private Player thePlayer;
    private Ship theShip;
+   
    
    //no args constructor
    public TextAdventure()
@@ -42,13 +45,17 @@ public class TextAdventure extends JFrame implements ActionListener
       //Create GUI
       
       //create JPanels
-      panel = new JPanel(new GridLayout(2,2));
+      panel = new JPanel(new GridLayout(2,2,5,5));
       panel_RoomText = new JPanel();
       panel_GameIcon = new JPanel();
       panel_Options = new JPanel(new GridLayout(5,1));
       panel_Items = new JPanel();
-      panel_Items_Label = new JLabel();
-      panel_Items.add(panel_Items_Label);
+      panel_Items.setLayout(new BorderLayout());
+      
+      panel_Inventory= new JPanel(new GridLayout(3,3,5,5)); 
+      label_Items = new JLabel("Inventory");
+      panel_Items.add(label_Items,BorderLayout.NORTH);
+      panel_Items.add(panel_Inventory,BorderLayout.CENTER);
       setBackground(Color.pink);
       
       //add the panels
@@ -77,6 +84,17 @@ public class TextAdventure extends JFrame implements ActionListener
       panel_Options.add(button4);
       panel_Options.add(button5);
            
+      //create inventory buttons
+      inventory= new JButton[9];
+      for (int i=0;i<9;i++)
+      {
+         inventory[i] = new JButton();
+         inventory[i].setEnabled(false);
+         //inventory[i].setText(thePlayer.getInventory().get(i).getName());
+         panel_Inventory.add(inventory[i]);
+      }
+      
+      
       //create Player
       thePlayer = new Player();
       
@@ -99,26 +117,32 @@ public class TextAdventure extends JFrame implements ActionListener
    
    public void start()
    {
+
+
+   // Initialization
+
+      button1.setText(theShip.getRoomOf(thePlayer).getOption1().toString());
+      button1.addActionListener(this);
+      button2.setText(theShip.getRoomOf(thePlayer).getOption2().toString());
+      button2.addActionListener(this);
+      button3.setText(theShip.getRoomOf(thePlayer).getOption3().toString());
+      button3.addActionListener(this);
+      button4.setText(theShip.getRoomOf(thePlayer).getOption4().toString());
+      button4.addActionListener(this);
+      button5.setText(theShip.getRoomOf(thePlayer).getOption5().toString());
+      button5.addActionListener(this);
+   
+  
+   // Continuously updated
+   // (Currently does nothing.)
       gameRunning = true;
-      
+ 
       while (gameRunning)
       {
          
-         //update the options
-         button1.setText(theShip.getRoomOf(thePlayer).getOption1().toString());
-         button1.addActionListener(this);
-         button2.setText(theShip.getRoomOf(thePlayer).getOption2().toString());
-         button2.addActionListener(this);
-         button3.setText(theShip.getRoomOf(thePlayer).getOption3().toString());
-         button3.addActionListener(this);
-         button4.setText(theShip.getRoomOf(thePlayer).getOption4().toString());
-         button4.addActionListener(this);
-         button5.setText(theShip.getRoomOf(thePlayer).getOption5().toString());
-         button5.addActionListener(this);
 
-         //update items
-         panel_Items_Label.setText(thePlayer.displayInventory());
          
+      // although neat, we might never use a switch case thing.
          switch (currentRoom) {
          case 0:
             
@@ -146,8 +170,39 @@ public class TextAdventure extends JFrame implements ActionListener
 	}else if(e.getSource()==button5){
         	updateText(theShip.getRoomOf(thePlayer).getOption5().decide(thePlayer));
 	} 
+
+        updateOptions();
+        updateInventory();
 	
    }     
+
+   // we don't need to be updating the buttons constantly.
+   // This updates the options menu
+   public void updateOptions()
+   {
+      //update the options
+      button1.setText(theShip.getRoomOf(thePlayer).getOption1().toString());
+      button2.setText(theShip.getRoomOf(thePlayer).getOption2().toString());
+      button3.setText(theShip.getRoomOf(thePlayer).getOption3().toString());
+      button4.setText(theShip.getRoomOf(thePlayer).getOption4().toString());
+      button5.setText(theShip.getRoomOf(thePlayer).getOption5().toString());
+   }
+
+   // much like  the update options mehtod,
+   // this updates the inventory menu
+   public void updateInventory()
+   {
+      int itemsIndex = thePlayer.getInventory().size();
+      //update items
+      int i =0;
+      for (i=0;i<itemsIndex;i++)
+      {
+         inventory[i].setText(thePlayer.getInventory().get(i).getName()); }
+      for (i++;i<9;i++)
+      {
+         inventory[i].setText("");
+      }
+   }
 
    // I think it would be good to be able to update the
    //info text with a general method.

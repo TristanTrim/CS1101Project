@@ -7,39 +7,28 @@
  *
  * Player:
  */
- 
+
+import java.util.ArrayList;
+
 public class Player
 {
    //instance variables
-   private int hitPoints;
+
    private int currentRoom;
-   private Inventory playerInventory;
+   private ArrayList<Item> inventory; //aggregation directly with Item class, no Inventory class in between
    
    //no args constructor
    public Player()
    {
-      hitPoints = 100;
-      playerInventory = new Inventory();
+      inventory = new ArrayList<Item>();
       currentRoom=0;
    }
    
-   //getters and setters
-   public void setHitPoints(int h)
-   {
-      if (h > 0 && h <= 100)
-         hitPoints = h;
-      else
-         System.out.println("Error - hitpoints have to be between 0 and 100.");   
-   }   
 
-   public int getHitPoints()
-   {
-      return hitPoints;
-   }
    
-   public Inventory getInventory()
+   public ArrayList<Item> getInventory()
    {
-      return playerInventory;
+      return inventory;
    }
 
    public int getCurrentRoom()
@@ -54,8 +43,20 @@ public class Player
    
    public String displayInventory()
    {
-      return "Inventory: " + playerInventory;
+      return "Inventory: " + inventory;
    }
-      
-
+   //9 slots in inventoty     
+	public void addItem(Item item)
+	{
+		if(inventory.size()<=9)
+			inventory.add(item);
+		else
+			System.out.println("Inventory is full.");
+	}
+	//remove the first Item item from inventory
+	public void removeItem(Item item)
+	{
+		inventory.remove(item);
+	}	
+	
 }
