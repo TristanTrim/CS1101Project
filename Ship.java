@@ -49,6 +49,11 @@ public class Ship
       String d_bridge = "";
       String d_hallway = "";
       String d_readyRoom = "";
+       
+      //option text
+      String bridgeOption3 = "";
+      String bridgeOption4 = "";
+      String bridgeOption5 = "";
       
       d_bridge = "You are on the bridge of the USS Enterprise. People are <br>" +
           "walking around quickly, chattering to each other in hushed, <br>" +
@@ -61,23 +66,31 @@ public class Ship
           "or not, but he seems to be showing definite signs of concern. The<br>" +
           "Captain is here. He is sitting in his chair, looking distracted.";
       d_hallway = "";
-      d_readyRoom = "You are in the Captain’s Ready Room.  You’re pretty<br>" +
-           "sure you’re not suppose to be in here. You can’t get over how<br>" +
+      d_readyRoom = "You are in the Captain’s Ready Room.  You’re pretty <br>" +
+           "sure you’re not suppose to be in here. You can’t get over how <br>" +
            "immaculate the room is. There doesn’t seem to be single thing out <br>" +
-           "of place. You see a desk, and a picture of a green alien woman drinking<br>" +
+           "of place. You see a desk, and a picture of a green alien woman drinking <br>" +
            "a Romulan ale.";     
       
       //bridge
+       bridgeOption3 = "\"What… oh, Mr. Ricky. Excuse me, but this is not the <br>" +
+           "time to discuss your training. As you can see, I’m really quite <br>" +
+           "busy. Or do you not know that Klingon’s are about to attack the ship. <br>" +
+           "Oh, bother, you probably don’t even know what this is called, do you?\" <br>" +
+           "Spock looks back into the device you are regretting not paying more <br> " +
+           "attention to in class.";
+       bridgeOption4 = "Kirk looks at you for a moment and then at your hands. <br>" +
+           "\"You’re… not… carrying my… tea.” he says.  He looks back to the floor,<br>" +
+           "seeming to lose interest in you.";
+       
       bridge.setDescription(d_bridge);
       bridge.setOption1(new Option("North", "ya go north", 2));
-      bridge.setOption2(new Option("East", "ya go east"));
-      bridge.setOption3(new Option("Talk to Spock", "\"Please control your emotions Ricky\""));
-      bridge.setOption4(new Option("Talk to Kirk", "Hmm, You, could go and get tea?"));
+      bridge.setOption2(new Option("East", d_readyRoom, 1));
+      bridge.setOption3(new Option("Talk to Spock", bridgeOption3));
+      bridge.setOption4(new Option("Talk to Kirk", bridgeOption4));
       bridge.setOption5(new Option("Look at viewscreen", "Looks spacy. Nice resolution"));
    
       //hallway
-      d = "<html>You are in the hallway. It's lonely here for an ensign. <br>" +
-          "The hallway is empty</html>";
       hallway.setDescription(d_hallway);
       hallway.setOption1(new Option("North", "ya go north"));
       hallway.setOption2(new Option("East", "ya go east.<br> The bridge is pretty bright compared with the hallway.", 0));
