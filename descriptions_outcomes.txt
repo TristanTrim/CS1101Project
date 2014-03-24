@@ -1,6 +1,11 @@
 Bridge
 
-You are on the bridge of the USS Enterprise. People are walking around quickly, chattering to each other in hushed, nervous tones. Spock is looking into a device that looks a little bit like a toaster oven. You’re supposed to know what its really called, because its part of your training and you’re pretty sure that its not actually a toaster. But, you’re just an Ensign after all, and you’re sure no one really cares if you know what it’s called. You’re also not entirely sure if Vulcans can look nervous or not, but he seems to be showing definite signs of concern. The Captain is here. He is sitting in his chair, looking distracted. 
+You are on the bridge of the USS Enterprise. People are walking around quickly, chattering to each other 
+in hushed, nervous tones. Spock is looking into a device that looks a little bit like a toaster oven. You’re 
+supposed to know what its really called, because its part of your training and you’re pretty sure that its not 
+actually a toaster. But, you’re just an Ensign after all, and you’re sure no one really cares if you know what 
+it’s called. You’re also not entirely sure if Vulcans can look nervous or not, but he seems to be showing definite 
+signs of concern. The Captain is here. He is sitting in his chair, looking distracted. 
 
 Options
 1.	North
@@ -13,13 +18,19 @@ Outcome:
 
 1.	Go to Hallway
 2.	Go to Captain’s Ready Room
-3.	“What… oh, Mr. Ricky. Excuse me, but this is not the time to discuss your training. As you can see, I’m really quite busy. Or do you not know that Klingon’s are about to attack the ship. Oh, bother, you probably don’t even know what this is called, do you?” Spock looks back into the device you were regretting not paying more attention to in class.
-4.	Kirk looks at you for a moment and then at your hands. “You’re… not… carrying my… tea.” he says.  He looks back to the floor, seeming to lose interest in you
+3.	“What… oh, Mr. Ricky. Excuse me, but this is not the time to discuss your training. As you can see, I’m 
+really quite busy. Or do you not know that Klingon’s are about to attack the ship. Oh, bother, you probably 
+don’t even know what this is called, do you?” Spock looks back into the device you were regretting not paying 
+more attention to in class.
+4.	Kirk looks at you for a moment and then at your hands. “You’re… not… carrying my… tea.” he says.  He looks
+back to the floor, seeming to lose interest in you
 5.	You see the words “20 Klingon Bird’s of Prey en-route. Tactical Advantage: none, Chance of Survival: .02%”
 
 Captain’s Ready Room
 
-You are in the Captain’s Ready Room.  You’re pretty sure you’re not suppose to be in here. You can’t get over how immaculate the room is. There doesn’t seem to be single thing out of place. You see a desk, and a picture of a green alien woman drinking a Romulan ale.
+You are in the Captain’s Ready Room.  You’re pretty sure you’re not suppose to be in here. You can’t get over 
+how immaculate the room is. There doesn’t seem to be single thing out of place. You see a desk, and a picture
+of a green alien woman drinking a Romulan ale.
 
 Options
 1.	West
@@ -33,9 +44,15 @@ Outcome:
 
 1.	Go to bridge
 2.	Go to War Room
-3.	She seems quite lovely. There’s some writing on the picture in purple lipstick in a language that you don’t understand.
-4.	You feel important, if not a little worried you might get caught. Although, you feel like you should be more concerned about the immanent attack of the Klingon’s.
-5.	You place the dirty glass on the desk. Immediately a small cleaning robot bursts through a panel in the wall you hadn’t noticed and comes hurtling itself across the room. It picks up the glass and barrels its way towards another panel on the other side of the room. It bumps into a collectable copy of the Hitchhikers Guide to the Galaxy and topples over.  It gets up, shakes its robotic head and then disappears into the hole in the wall. You notice a small screw lying on the floor where it fell.
+3.	She seems quite lovely. There’s some writing on the picture in purple lipstick in a language that you don’t 
+understand.
+4.	You feel important, if not a little worried you might get caught. Although, you feel like you should be more 
+concerned about the immanent attack of the Klingon’s.
+5.	You place the dirty glass on the desk. Immediately a small cleaning robot bursts through a panel in the wall 
+you hadn’t noticed and comes hurtling itself across the room. It picks up the glass and barrels its way towards 
+another panel on the other side of the room. It bumps into a collectable copy of the Hitchhikers Guide to the 
+Galaxy and topples over.  It gets up, shakes its robotic head and then disappears into the hole in the wall. 
+You notice a small screw lying on the floor where it fell.
 5.	Add screw to inventory
 
 
