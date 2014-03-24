@@ -1,6 +1,6 @@
 Bridge
 
-You are on the bridge of the USS Enterprise. People are walking around quickly, chattering to each other in hushed, nervous tones. Spock is looking into a device that looks a little bit like a toaster oven. You’re supposed to know what its really called, because its part of your training and you’re pretty sure that its not actually a toaster. But, you’re just an Ensign after all, and you’re sure no one really cares if you know what it’s called. You’re also not entirely sure if Vulcans can look nervous or not, but he seems to be showing definite signs of concern. The Captain is here. He is sitting in his chair, looking distracted.
+You are on the bridge of the USS Enterprise. People are walking around quickly, chattering to each other in hushed, nervous tones. Spock is looking into a device that looks a little bit like a toaster oven. You’re supposed to know what its really called, because its part of your training and you’re pretty sure that its not actually a toaster. But, you’re just an Ensign after all, and you’re sure no one really cares if you know what it’s called. You’re also not entirely sure if Vulcans can look nervous or not, but he seems to be showing definite signs of concern. The Captain is here. He is sitting in his chair, looking distracted. 
 
 Options
 1.	North
