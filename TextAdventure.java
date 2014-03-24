@@ -110,8 +110,18 @@ public class TextAdventure extends JFrame implements ActionListener
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setVisible(true);
 
-      //update the description
-      panel_RoomText_Label.setText(theShip.getRoomOf(thePlayer).getDescription());
+      //update the description - can be changed to display whatever to start the game
+      String introText = "<html>You are on the bridge of the USS Enterprise. People are <br>" +
+          "walking around quickly, chattering to each other in hushed, <br>" +
+          "nervous tones. Spock is looking into a device that looks a little<br>" +
+          "bit like a toaster oven. You’re supposed to know what its really <br>" +
+          "called, because its part of your training and you’re pretty sure <br>" +
+          "that its not actually a toaster. But, you’re just an Ensign after<br>" +
+          "all, and you’re sure no one really cares if you know what it’s <br>" +
+          "called. You’re also not entirely sure if Vulcans can look nervous<br>" +
+          "or not, but he seems to be showing definite signs of concern. The<br>" +
+          "Captain is here. He is sitting in his chair, looking distracted.</html>";
+      panel_RoomText_Label.setText(introText);
       
    }
    
