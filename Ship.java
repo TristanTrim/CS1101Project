@@ -49,11 +49,7 @@ public class Ship
       String d_bridge = "";
       String d_hallway = "";
       String d_readyRoom = "";
-       
-      //option text
-      String bridgeOption3 = "";
-      String bridgeOption4 = "";
-      String bridgeOption5 = "";
+      String d_warRoom = "";
       
       d_bridge = "You are on the bridge of the USS Enterprise. People are <br>" +
           "walking around quickly, chattering to each other in hushed, <br>" +
@@ -72,6 +68,15 @@ public class Ship
            "of place. You see a desk, and a picture of a green alien woman drinking <br>" +
            "a Romulan ale.";     
       
+       //option text
+       String bridgeOption3 = "";
+       String bridgeOption4 = "";
+       String bridgeOption5 = "";
+       String readyRoomOption3 = "";
+       String readyRoomOption4 = "";
+       String readyRoomOption5a = "";
+       String readyRoomOption5b = "";
+       
       //bridge
        bridgeOption3 = "\"What… oh, Mr. Ricky. Excuse me, but this is not the <br>" +
            "time to discuss your training. As you can see, I’m really quite <br>" +
@@ -99,11 +104,34 @@ public class Ship
       hallway.setOption5(new Option("Pick mushroom", "Odd that there would be mushrooms<br>growing in a hallway.", new Item("Mushroom")));
       
       //ready room
+       readyRoomOption3 = "She seems quite lovely. There’s some writing on the picture <br>" +
+            "in purple lipstick in a language that you don’t understand.";
+       readyRoomOption4 = "You feel important, if not a little worried you might get <br>" +
+            "caught. Although, you feel like you should be more concerned about the <br>" +
+            "imminent attack of the Klingon’s.";
+       readyRoomOption5a = "You place the dirty glass on the desk. Immediately a small <br>" +
+            "cleaning robot bursts through a panel you hadn't noticed in the wall <br>" +
+            "and comes hurtling itself across the room. It picks up the glass and <br>" +
+            "barrels its way towards another panel on the other side of the room. It <br>" +
+            "bumps into a collectable copy of the Hitchhikers Guide to the Galaxy and <br>" +
+            "topples over.  It gets up, shakes its robotic head and then disappears into<br>" +
+            "the hole in the wall. You notice a small screw lying on the floor where it <br>" +
+            "You pick it up, and wonder what you can do with it";
+
+       boolean hasGlass = true; //to be changed!! temp sol for testing text
+       
       captainReadyRoom.setOption1(new Option("West", d_bridge, 0));
-      captainReadyRoom.setOption2(new Option("West", d_bridge, 0));
-      captainReadyRoom.setOption3(new Option("West", d_bridge, 0));
-      captainReadyRoom.setOption4(new Option("West", d_bridge, 0));
-      captainReadyRoom.setOption5(new Option("West", d_bridge, 0));
+      captainReadyRoom.setOption2(new Option("East", d_bridge, 0));
+      captainReadyRoom.setOption3(new Option("Look at picture", readyRoomOption3));
+      captainReadyRoom.setOption4(new Option("Sit at desk", readyRoomOption4));
+      if (hasGlass)
+       {
+           captainReadyRoom.setOption5(new Option("Put Glass on desk", readyRoomOption5a,  new Item("Screw")));
+       }
+      else
+      {
+          captainReadyRoom.setOption5(new Option("Ponder being the Captain", "You seem to wasting a lot of time..."));
+      }
    }
 
 
