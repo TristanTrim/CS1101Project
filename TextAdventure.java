@@ -144,12 +144,42 @@ public class TextAdventure extends JFrame implements ActionListener
    
   
    // Continuously updated
-   // (Currently does nothing.)
       gameRunning = true;
  
       while (gameRunning)
       {
          
+	
+         // check if the user is in the ready room, and if they have the Glass
+         // if they do, change option 5 to putting the glass on the table.
+         System.out.print("");//I get a really weird error if I don't put this here...
+         if (theShip.getReadyRoom()==(theShip.getRoomOf(thePlayer)))
+         {
+            boolean hasGlass = false;
+            for(Item item : thePlayer.getInventory())
+            {
+               if(item.equals(new Item("Glass")))
+               {
+                  hasGlass=true;
+               }
+            }
+            if (hasGlass)
+            {
+               String readyRoomOption5a = "You place the dirty glass on the desk. Immediately a small <br>" +
+                    "cleaning robot bursts through a panel you hadn't noticed in the wall <br>" +
+                    "and comes hurtling itself across the room. It picks up the glass and <br>" +
+                    "barrels its way towards another panel on the other side of the room. It <br>" +
+                    "bumps into a collectable copy of the Hitchhikers Guide to the Galaxy and <br>" +
+                    "topples over.  It gets up, shakes its robotic head and then disappears into<br>" +
+                    "the hole in the wall. You notice a small screw lying on the floor where it <br>" +
+                    "You pick it up, and wonder what you can do with it";
+       
+               theShip.getRoomOf(thePlayer).setOption5(new Option("Put Glass on desk", readyRoomOption5a,  new Item("Screw"), new Item("Glass"), "You have no Glass"));
+            }else{
+               theShip.getRoomOf(thePlayer).setOption5(new Option("Ponder being the Captain", "You seem to wasting a lot of time..."));
+            }
+         }
+
 
          
       // although neat, we might never use a switch case thing.
@@ -183,7 +213,8 @@ public class TextAdventure extends JFrame implements ActionListener
 
         updateOptions();
         updateInventory();
-	
+
+
    }     
 
    // we don't need to be updating the buttons constantly.

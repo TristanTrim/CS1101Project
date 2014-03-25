@@ -101,7 +101,7 @@ public class Ship
       hallway.setOption2(new Option("East", "ya go east.<br> The bridge is pretty bright compared with the hallway.", 0));
       hallway.setOption3(new Option("Wait", "You wait. It's kinda booring."));
       hallway.setOption4(new Option("Do a handstand", "That wouldn't be very professional"));
-      hallway.setOption5(new Option("Pick mushroom", "Odd that there would be mushrooms<br>growing in a hallway.", new Item("Mushroom")));
+      hallway.setOption5(new Option("Pick mushroom", "These aren't mushrooms at all!<br>They are glass cups!", new Item("Glass"), null, ""));
       
       //ready room
        readyRoomOption3 = "She seems quite lovely. There’s some writing on the picture <br>" +
@@ -109,31 +109,20 @@ public class Ship
        readyRoomOption4 = "You feel important, if not a little worried you might get <br>" +
             "caught. Although, you feel like you should be more concerned about the <br>" +
             "imminent attack of the Klingon’s.";
-       readyRoomOption5a = "You place the dirty glass on the desk. Immediately a small <br>" +
-            "cleaning robot bursts through a panel you hadn't noticed in the wall <br>" +
-            "and comes hurtling itself across the room. It picks up the glass and <br>" +
-            "barrels its way towards another panel on the other side of the room. It <br>" +
-            "bumps into a collectable copy of the Hitchhikers Guide to the Galaxy and <br>" +
-            "topples over.  It gets up, shakes its robotic head and then disappears into<br>" +
-            "the hole in the wall. You notice a small screw lying on the floor where it <br>" +
-            "You pick it up, and wonder what you can do with it";
 
-       boolean hasGlass = true; //to be changed!! temp sol for testing text
        
       captainReadyRoom.setOption1(new Option("West", d_bridge, 0));
       captainReadyRoom.setOption2(new Option("East", d_bridge, 0));
       captainReadyRoom.setOption3(new Option("Look at picture", readyRoomOption3));
       captainReadyRoom.setOption4(new Option("Sit at desk", readyRoomOption4));
-      if (hasGlass)
-       {
-           captainReadyRoom.setOption5(new Option("Put Glass on desk", readyRoomOption5a,  new Item("Screw")));
-       }
-      else
-      {
-          captainReadyRoom.setOption5(new Option("Ponder being the Captain", "You seem to wasting a lot of time..."));
-      }
+      captainReadyRoom.setOption5(new Option("Ponder being the Captain", "You seem to wasting a lot of time..."));
    }
 
+
+   public Room getReadyRoom()
+   {
+      return rooms[1];
+   }
 
    //get currentLocation
    public Room getRoomOf(Player player)

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class Option
 {
 
+   /// Useful attributes!
    private String Name;
    private String ActionText;
    private String FailText = "";
@@ -20,6 +21,8 @@ public class Option
    private ArrayList<Item> RemovedItems = new ArrayList<Item>();
    private ArrayList<Item> AddedItems = new ArrayList<Item>();
 
+
+   /// Lots of kinds of constructor methods.
    Option (String Name, String ActionText, int toRoom,
            ArrayList<Item> addit,ArrayList<Item> remit)
    {
@@ -44,13 +47,25 @@ public class Option
       new ArrayList<Item>()
       );
    }
-   Option (String Name, String ActionText, Item addone)
+   Option (String Name, String ActionText, Item addone, Item subone, String fial)
    {
       this(Name, ActionText, -1,
       new ArrayList<Item>(),
       new ArrayList<Item>()
       );
-      this.AddedItems.add(addone);
+      if(addone!=null){
+         this.AddedItems.add(addone);
+      }
+      if(subone!=null){
+         this.RemovedItems.add(subone);
+     }
+     this.setFailText(fial);
+   }
+
+
+   public void setFailText(String fial)
+   {
+      this.FailText="<html>"+fial;
    }
 
    public String toString() 
@@ -76,9 +91,17 @@ public class Option
       //First we need to know if the user needs
       //Key items removed.
       boolean canDo=true;
-      for(Item item : RemovedItems)
+      for(Item itemNeeded : RemovedItems)
       {
-         if(!player.getInventory().contains(item))
+         boolean itemIsNotThere = true;
+         for(Item itemHad : player.getInventory())
+         {
+            if(itemHad.equals(itemNeeded))
+            {
+               itemIsNotThere = false;
+            }
+         }
+         if(itemIsNotThere)
          {
             canDo=false;
          }
@@ -100,7 +123,15 @@ public class Option
         // remove items from user inventory
           for(Item item : RemovedItems)
           {
-	     player.getInventory().remove(item);
+             boolean notRemoved=true;
+             for(int i=0;notRemoved;i++)
+             {
+                if(player.getInventory().get(i).equals(item))
+                {
+                   player.getInventory().remove(i);
+                   notRemoved=false;
+                }
+             }
              textbuf+="<br>"+item.getName()+" removed from inventory.";
           }
         // add items to user inventory
