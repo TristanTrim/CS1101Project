@@ -56,8 +56,15 @@ public class TextAdventure extends JFrame implements ActionListener
       label_Items = new JLabel("Inventory");
       panel_Items.add(label_Items,BorderLayout.NORTH);
       panel_Items.add(panel_Inventory,BorderLayout.CENTER);
-      setBackground(Color.pink);
       
+      //colour
+      panel.setBackground(Color.pink);
+      panel_RoomText.setBackground(Color.pink);
+      panel_GameIcon.setBackground(Color.pink);
+      panel_Options.setBackground(Color.pink);
+      panel_Items.setBackground(Color.pink);
+      panel_Inventory.setBackground(Color.pink);
+            
       //add the panels
       add(panel);
       panel.add(panel_RoomText);
@@ -114,11 +121,11 @@ public class TextAdventure extends JFrame implements ActionListener
       String introText = "<html>You are on the bridge of the USS Enterprise. People are <br>" +
           "walking around quickly, chattering to each other in hushed, <br>" +
           "nervous tones. Spock is looking into a device that looks a little<br>" +
-          "bit like a toaster oven. You’re supposed to know what its really <br>" +
-          "called, because its part of your training and you’re pretty sure <br>" +
-          "that its not actually a toaster. But, you’re just an Ensign after<br>" +
-          "all, and you’re sure no one really cares if you know what it’s <br>" +
-          "called. You’re also not entirely sure if Vulcans can look nervous<br>" +
+          "bit like a toaster oven. You're supposed to know what its really <br>" +
+          "called, because its part of your training and you're pretty sure <br>" +
+          "that its not actually a toaster. But, you're just an Ensign after<br>" +
+          "all, and you're sure no one really cares if you know what it is <br>" +
+          "called. You're also not entirely sure if Vulcans can look nervous<br>" +
           "or not, but he seems to be showing definite signs of concern. The<br>" +
           "Captain is here. He is sitting in his chair, looking distracted.</html>";
       panel_RoomText_Label.setText(introText);
@@ -165,13 +172,14 @@ public class TextAdventure extends JFrame implements ActionListener
             }
             if (hasGlass)
             {
-               String readyRoomOption5a = "You place the dirty glass on the desk. Immediately a small <br>" +
-                    "cleaning robot bursts through a panel you hadn't noticed in the wall <br>" +
-                    "and comes hurtling itself across the room. It picks up the glass and <br>" +
-                    "barrels its way towards another panel on the other side of the room. It <br>" +
-                    "bumps into a collectable copy of the Hitchhikers Guide to the Galaxy and <br>" +
-                    "topples over.  It gets up, shakes its robotic head and then disappears into<br>" +
-                    "the hole in the wall. You notice a small screw lying on the floor where it <br>" +
+               String readyRoomOption5a = "You place the dirty glass on the desk. Immediately a<br>" +
+                    "small cleaning robot bursts through a panel you hadn't noticed in<br>" +
+                    "the wall and comes hurtling itself across the room. It picks<br>" +
+                    "up the glass and barrels its way towards another panel on the<br>" +
+                    "other side of the room. It bumps into a collectable copy of the<br>" +
+                    "Hitchhikers Guide to the Galaxy and topples over.  It gets up, <br>" +
+                    "shakes its robotic head and then disappears into the hole in the<br>" +
+                    "wall. You notice a small screw lying on the floor where it fell.<br>" +
                     "You pick it up, and wonder what you can do with it";
        
                theShip.getRoomOf(thePlayer).setOption5(new Option("Put Glass on desk", readyRoomOption5a,  new Item("Screw"), new Item("Glass"), "You have no Glass"));
