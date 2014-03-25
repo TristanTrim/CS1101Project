@@ -101,13 +101,13 @@ public class Option
           for(Item item : RemovedItems)
           {
 	     player.getInventory().remove(item);
-             textbuf+="<br>"+item+" removed from inventory.";
+             textbuf+="<br>"+item.getName()+" removed from inventory.";
           }
         // add items to user inventory
           for(Item item : AddedItems)
           {
              player.getInventory().add(0,item);
-             textbuf+="<br>"+item+" added to inventory.";
+             textbuf+="<br>"+item.getName()+" added to inventory.";
           }
 
         // Change users room in the ship
