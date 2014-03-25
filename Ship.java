@@ -108,7 +108,10 @@ public class Ship
             "I think you should know better, and if I do, I don't think you'll<br>" +
             "ever learn.";  
       d_crewCabins = "You are in a section of the ship containing some of the<br>" +
-            "crew's cabins.";            
+            "crew's cabins. People come and go... you see a personal items<br>" +
+            "like picture frames and slippers. In one room, you can see a<br>" +
+            "glass case. In it is a small, furry little creature that you<br>" +
+            "recognize as being a tribble. It is sickingly cute.";            
       
       //option text
       String bridgeOption3 = "";
