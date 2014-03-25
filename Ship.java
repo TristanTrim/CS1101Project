@@ -76,10 +76,26 @@ public class Ship
             "but you think this place looks familiar - in that, it looks like<br>" +
             "every other hallway on the Enterprise. Sulu is here, shirtless, and<br>" +
             "carrying a sword. But, other than that, things seem quite ordinary.";
-      d_holoDeck = "You are in the holodeck.";
-      d_tenForward = "You are in Ten Forward.";
-      d_engineRoom = "You are in the engine room.";
-      d_transporterRoom = "You are in the transporter room.";          
+      d_holoDeck = "You are in the holodeck. It is currently set to the re-creation<br>" +
+            "of a early 21st century university computer science class. There are <br>" +
+            "a fine selection of young men and woman currently learning about<br>" + 
+            "pointers. Not that you're entirely sure what that really is.";
+      d_tenForward = "You are in Ten Forward. Bones is sitting at a table drinking<br>" +
+            "a dark, what you can only imagine as being a strong drink. The <br>" +
+            "glass seems well used. He is mumbling to himself. The rest of <br>" +
+            "the bar patrons seem to ignore you. You don't really have a lot <br>" +
+            "of friends onboard, do you?";
+      d_engineRoom = "You are in the engine room. There is a very large, complicated<br>" +
+            "engine here (vague enough). Also, there is a small panel box <br>" +
+            "that does not seem to be working.";
+      d_transporterRoom = "You are in the transporter room. There is a panel here <br>" +
+            "with a green button that you're absolutely sure you're not supposed<br>" +
+            "to touch. I mean, really - to think, an Ensign just haphazardly<br>" +
+            "touching a button on a transporter panel. They don't even <br>" +
+            "bother to have someone manning the station, as it is absolutely<br>" +
+            "inconcievable to think that someone would be so nutty to activate<br>" +
+            "the transporter without permission. I mean, come on - you're not<br>" +
+            "going to do that are you?";          
       d_warRoom = "You are in the war room. You know for a fact that you're <br>" +
             "not supposed to be in here. Why do you keep doing this to<br>" +
             "yourself. Are you trying to get reprimanded or something. I mean<br>" +
