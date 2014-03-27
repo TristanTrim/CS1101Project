@@ -15,52 +15,51 @@ public class Option
 
    /// Useful attributes!
    private String Name;
-   private String ActionText;
-   private String FailText = "";
-   private int changeroom = -1;
-   private ArrayList<Item> RemovedItems = new ArrayList<Item>();
-   private ArrayList<Item> AddedItems = new ArrayList<Item>();
+   private String ReplyText;
+   private String FailText = "";// not sure we need this...
+   private int changeRoom = -1;
+   private ArrayList<Item> TakenItems = new ArrayList<Item>();
+   private ArrayList<Item> GivenItems = new ArrayList<Item>();
+   private int finiteGiven=-1;// this may be used or deleted at some point as well....
 
 
-   /// Lots of kinds of constructor methods.
-   Option (String Name, String ActionText, int toRoom,
-           ArrayList<Item> addit,ArrayList<Item> remit)
+// constructor method only takes the name of the Option.
+   Option (String Name)
    {
       this.Name=Name;
-      this.ActionText="<html>"+ActionText;
-      this.FailText="<html>";
-      this.changeroom = toRoom;
-      this.AddedItems=addit;
-      this.RemovedItems=remit;
    }
-   Option (String Name, String ActionText)
+
+// some mutators
+
+   public void setReplyText(String ReplyText)
    {
-      this(Name, ActionText, -1,
-      new ArrayList<Item>(),
-      new ArrayList<Item>()
-      );
+      this.ReplyText="<html>"+ReplyText;
    }
-   Option (String Name, String ActionText, int changeRoom)
+
+   public void setChangeRoom(int newRoom)
    {
-      this(Name, ActionText, changeRoom,
-      new ArrayList<Item>(),
-      new ArrayList<Item>()
-      );
+      this.changeRoom=newRoom;
    }
-   Option (String Name, String ActionText, Item addone, Item subone, String fial)
+
+
+// These methods add and remove items from the arrays
+// of items to be given or taken from the player upon
+// them choosing the option.
+
+   public void addGivenItem(Item givable)
    {
-      this(Name, ActionText, -1,
-      new ArrayList<Item>(),
-      new ArrayList<Item>()
-      );
-      if(addone!=null){
-         this.AddedItems.add(addone);
+      if(givable!=null){
+         this.GivenItems.add(givable);
       }
-      if(subone!=null){
-         this.RemovedItems.add(subone);
-     }
-     this.setFailText(fial);
    }
+
+   public void addTakenItem(Item takable)
+   {
+      if(takable!=null){
+         this.TakenItems.add(takable);
+     }
+   }
+
 
 
    public void setFailText(String fial)
@@ -75,7 +74,7 @@ public class Option
 
    public String getDescription()
    {
-      return(ActionText);
+      return(ReplyText);
    }
    
 // This will go through the options
@@ -91,7 +90,7 @@ public class Option
       //First we need to know if the user needs
       //Key items removed.
       boolean canDo=true;
-      for(Item itemNeeded : RemovedItems)
+      for(Item itemNeeded : TakenItems)
       {
          boolean itemIsNotThere = true;
          for(Item itemHad : player.getInventory())
@@ -104,15 +103,16 @@ public class Option
          if(itemIsNotThere)
          {
             canDo=false;
+            textbuf+="You have no "+itemNeeded+"<br>";
          }
       }
 
-      // Players cant have more than nine items!
+      // Players can't have more than nine items!
       // We'd better check that they don't.
-      if(AddedItems.size()>9-player.getInventory().size())
+      if(GivenItems.size()>9-player.getInventory().size())
       {
          canDo=false;
-         textbuf+="Your inventory is full";
+         textbuf+="Your inventory is full<br>";
       }
 
       //if the user has needed items/requirements
@@ -121,7 +121,7 @@ public class Option
       {
 
         // remove items from user inventory
-          for(Item item : RemovedItems)
+          for(Item item : TakenItems)
           {
              boolean notRemoved=true;
              for(int i=0;notRemoved;i++)
@@ -135,16 +135,16 @@ public class Option
              textbuf+="<br>"+item.getName()+" removed from inventory.";
           }
         // add items to user inventory
-          for(Item item : AddedItems)
+          for(Item item : GivenItems)
           {
              player.getInventory().add(0,item);
              textbuf+="<br>"+item.getName()+" added to inventory.";
           }
 
         // Change users room in the ship
-          if(!(changeroom==-1))
+          if(!(changeRoom==-1))
           {
-             player.setCurrentRoom(changeroom);
+             player.setCurrentRoom(changeRoom);
           }
 
 
@@ -152,7 +152,7 @@ public class Option
           textbuf+="</html>";
 
         // now, return the new infotext.
-          return(ActionText+textbuf);
+          return(ReplyText+textbuf);
        }else{
         // add the end html tag to the end of the textbuffer.
           textbuf+="</html>";

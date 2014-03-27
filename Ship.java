@@ -122,82 +122,197 @@ public class Ship
       String readyRoomOption5a = "";
       String readyRoomOption5b = "";
        
+      // buffer Option
+      Option opbuf;
+
       //bridge
+      opbuf = new Option("North");
+      opbuf.setReplyText(d_hallway);
+      opbuf.setChangeRoom(2);
+      bridge.setOption1(opbuf);
+      
+      opbuf = new Option("East");
+      opbuf.setReplyText(d_readyRoom);
+      opbuf.setChangeRoom(1);
+      bridge.setOption2(opbuf);
+
+      opbuf = new Option("Talk to Spock");
       bridgeOption3 = "\"What - oh, Mr. Ricky. Excuse me, but this is not the <br>" +
          "time to discuss your training. As you can see, I'm really <br>" +
          "quite busy. Or do you not know that Klingons are about to attack<br>" +
          "the ship. Oh, bother, you probably don't even know what this is<br>" +
          "called, do you?\" Spock looks back into the device you <br> " +
          "are regretting not paying more attention to in class.";
+      opbuf.setReplyText(bridgeOption3);
+      bridge.setOption3(opbuf);
+
+      opbuf = new Option("Talk to Kirk");
        bridgeOption4 = "Kirk looks at you for a moment and then at your hands. <br>" +
          "\"You're... not... carrying my... tea.\" he says.  He looks <br>" +
          "back to the floor, seeming to lose interest in you.";     
-      bridge.setOption1(new Option("North", d_hallway, 2));
-      bridge.setOption2(new Option("East", d_readyRoom, 1));
-      bridge.setOption3(new Option("Talk to Spock", bridgeOption3));
-      bridge.setOption4(new Option("Talk to Kirk", bridgeOption4));
-      bridge.setOption5(new Option("Look at viewscreen", "Looks spacy. Nice resolution"));
-   
+      opbuf.setReplyText(bridgeOption4);
+      bridge.setOption4(opbuf);
+
+      opbuf = new Option("Look at viewscreen");
+      opbuf.setReplyText("Looks spacy. Nice resolution");
+      bridge.setOption5(opbuf);
+
+
       //ready room
       readyRoomOption3 = "She seems quite lovely. There's some writing on the picture <br>" +
          "in purple lipstick in a language that you don't understand.";
       readyRoomOption4 = "You feel important, if not a little worried you might get<br>" +
          "caught. Although, you feel like you should be more concerned<br>" +
          "about the imminent attack of the Klingons.";
-      captainReadyRoom.setOption1(new Option("West", d_bridge, 0));
-      captainReadyRoom.setOption2(new Option("East", d_warRoom, 7));
-      captainReadyRoom.setOption3(new Option("Look at picture", readyRoomOption3));
-      captainReadyRoom.setOption4(new Option("Sit at desk", readyRoomOption4));
-      captainReadyRoom.setOption5(new Option("Ponder being the Captain", "You seem to wasting a lot of time..."));
+
+      opbuf = new Option("West");
+      opbuf.setReplyText(d_bridge);
+      opbuf.setChangeRoom(0);
+      captainReadyRoom.setOption1(opbuf);
+
+      opbuf = new Option("East");
+      opbuf.setReplyText(d_warRoom);
+      opbuf.setChangeRoom(7);
+      captainReadyRoom.setOption2(opbuf);
+
+      opbuf = new Option("Look at picture");
+      opbuf.setReplyText(readyRoomOption3);
+      captainReadyRoom.setOption3(opbuf);
+
+      opbuf = new Option("Sit at desk");
+      opbuf.setReplyText(readyRoomOption4);
+      captainReadyRoom.setOption4(opbuf);
+
+      opbuf = new Option("Ponder being the Captain");
+      opbuf.setReplyText("You seem to wasting a lot of time...");
+      captainReadyRoom.setOption5(opbuf);
+
 
       //hallway
-      hallway.setOption1(new Option("North", d_holoDeck, 3));
-      hallway.setOption2(new Option("South", d_bridge, 0));
-      hallway.setOption3(new Option("East", d_crewCabins, 8));
-      hallway.setOption4(new Option("Do a handstand", "That wouldn't be very professional"));
-      hallway.setOption5(new Option("Pick mushroom", "These aren't mushrooms at all!<br>They are glass cups!", new Item("Glass"), null, ""));
+      opbuf = new Option("North");
+      opbuf.setReplyText(d_holoDeck);
+      opbuf.setChangeRoom(3);
+      hallway.setOption1(opbuf);
+
+      opbuf = new Option("South");
+      opbuf.setReplyText(d_bridge);
+      opbuf.setChangeRoom(0);
+      hallway.setOption2(opbuf);
+
+      opbuf = new Option("East");
+      opbuf.setReplyText(d_crewCabins);
+      opbuf.setChangeRoom(8);
+      hallway.setOption3(opbuf);
+
+      opbuf = new Option("Do a handstand");
+      opbuf.setReplyText( "That wouldn't be very professional");
+      hallway.setOption4(opbuf);
+
+      opbuf = new Option("Pick mushroom");
+      opbuf.setReplyText( "These aren't mushrooms at all!<br>They are glass cups!");
+      opbuf.addGivenItem(new Item("Glass"));
+      hallway.setOption5(opbuf);
+
       
       //holodeck
-      holoDeck.setOption1(new Option("East", d_tenForward, 4));
-      holoDeck.setOption2(new Option("South", d_hallway, 2));
-      holoDeck.setOption3(new Option("South", d_hallway, 2));
-      holoDeck.setOption4(new Option("South", d_hallway, 2));
-      holoDeck.setOption5(new Option("South", d_hallway, 2));
+      opbuf = new Option("East");
+      opbuf.setReplyText(d_tenForward);
+      opbuf.setChangeRoom(4);
+      holoDeck.setOption1(opbuf);
+
+      opbuf = new Option("South");
+      opbuf.setReplyText(d_hallway);
+      opbuf.setChangeRoom(2);
+      holoDeck.setOption2(opbuf);
+      holoDeck.setOption3(opbuf);
+      holoDeck.setOption4(opbuf);
+      holoDeck.setOption5(opbuf);
+
       
       //ten forward
-      tenForward.setOption1(new Option("West", d_holoDeck, 3));
-      tenForward.setOption2(new Option("East", d_engineRoom, 5));
-      tenForward.setOption3(new Option("South", d_crewCabins, 8));
-      tenForward.setOption4(new Option("South", d_crewCabins, 8));
-      tenForward.setOption5(new Option("South", d_crewCabins, 8));
-      
+      opbuf = new Option("West");
+      opbuf.setReplyText(d_holoDeck);
+      opbuf.setChangeRoom(3);
+      tenForward.setOption1(opbuf);
+
+      opbuf = new Option("East");
+      opbuf.setReplyText(d_engineRoom);
+      opbuf.setChangeRoom(5);
+      tenForward.setOption2(opbuf);
+
+      opbuf = new Option("South");
+      opbuf.setReplyText(d_crewCabins);
+      opbuf.setChangeRoom(8);
+      tenForward.setOption3(opbuf);
+      tenForward.setOption4(opbuf);
+      tenForward.setOption5(opbuf);
+
       //engine room
-      engineRoom.setOption1(new Option("West", d_tenForward, 4));
-      engineRoom.setOption2(new Option("South", d_transporterRoom, 6));
-      engineRoom.setOption3(new Option("South", d_transporterRoom, 6));
-      engineRoom.setOption4(new Option("South", d_transporterRoom, 6));
-      engineRoom.setOption5(new Option("South", d_transporterRoom, 6));
+      opbuf = new Option("West");
+      opbuf.setReplyText(d_tenForward);
+      opbuf.setChangeRoom(4);
+      engineRoom.setOption1(opbuf);
+
+      opbuf = new Option("South");
+      opbuf.setReplyText(d_transporterRoom);
+      opbuf.setChangeRoom(6);
+      engineRoom.setOption2(opbuf);
+      engineRoom.setOption3(opbuf);
+      engineRoom.setOption4(opbuf);
+      engineRoom.setOption5(opbuf);
+
       
       //transporter room
-      transporterRoom.setOption1(new Option("North", d_engineRoom, 5));
-      transporterRoom.setOption2(new Option("West", d_crewCabins, 8));
-      transporterRoom.setOption3(new Option("South", d_warRoom, 7));
-      transporterRoom.setOption4(new Option("South", d_warRoom, 7));
-      transporterRoom.setOption5(new Option("South", d_warRoom, 7));
-      
+      opbuf = new Option("North");
+      opbuf.setReplyText(d_engineRoom);
+      opbuf.setChangeRoom(5);
+      transporterRoom.setOption1(opbuf);
+
+      opbuf = new Option("West");
+      opbuf.setReplyText(d_crewCabins);
+      opbuf.setChangeRoom(8);
+      transporterRoom.setOption2(opbuf);
+
+      opbuf = new Option("South");
+      opbuf.setReplyText(d_warRoom);
+      opbuf.setChangeRoom(7);
+      transporterRoom.setOption3(opbuf);
+      transporterRoom.setOption4(opbuf);
+      transporterRoom.setOption5(opbuf);
+
       //war room
-      warRoom.setOption1(new Option("North", d_transporterRoom, 6));
-      warRoom.setOption2(new Option("West", d_readyRoom, 1));
-      warRoom.setOption3(new Option("West", d_readyRoom, 1));
-      warRoom.setOption4(new Option("West", d_readyRoom, 1));
-      warRoom.setOption5(new Option("West", d_readyRoom, 1));
+      opbuf = new Option("North");
+      opbuf.setReplyText(d_transporterRoom);
+      opbuf.setChangeRoom(6);
+      warRoom.setOption1(opbuf);
+
+      opbuf = new Option("West");
+      opbuf.setReplyText(d_readyRoom);
+      opbuf.setChangeRoom(1);
+      warRoom.setOption2(opbuf);
+      warRoom.setOption3(opbuf);
+      warRoom.setOption4(opbuf);
+      warRoom.setOption5(opbuf);
+
       
      //crew's cabins
-     crewCabins.setOption1(new Option("North", d_tenForward, 4));
-     crewCabins.setOption2(new Option("West", d_hallway, 2));
-     crewCabins.setOption3(new Option("East", d_transporterRoom, 6));
-     crewCabins.setOption4(new Option("East", d_transporterRoom, 6));
-     crewCabins.setOption5(new Option("East", d_transporterRoom, 6));
+      opbuf = new Option("North");
+      opbuf.setReplyText(d_tenForward);
+      opbuf.setChangeRoom(4);
+      crewCabins.setOption1(opbuf);
+
+      opbuf = new Option("West");
+      opbuf.setReplyText(d_hallway);
+      opbuf.setChangeRoom(2);
+      crewCabins.setOption2(opbuf);
+
+      opbuf = new Option("East");
+      opbuf.setReplyText(d_transporterRoom);
+      opbuf.setChangeRoom(6);
+      crewCabins.setOption3(opbuf);
+      crewCabins.setOption4(opbuf);
+      crewCabins.setOption5(opbuf);
+
    
    }
 

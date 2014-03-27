@@ -182,9 +182,15 @@ public class TextAdventure extends JFrame implements ActionListener
                     "wall. You notice a small screw lying on the floor where it fell.<br>" +
                     "You pick it up, and wonder what you can do with it";
        
-               theShip.getRoomOf(thePlayer).setOption5(new Option("Put Glass on desk", readyRoomOption5a,  new Item("Screw"), new Item("Glass"), "You have no Glass"));
+               Option opbuf = new Option("Put Glass on desk");
+               opbuf.setReplyText(readyRoomOption5a);
+               opbuf.addGivenItem(new Item("Screw"));
+               opbuf.addTakenItem(new Item("Glass"));
+               theShip.getRoomOf(thePlayer).setOption5(opbuf);
             }else{
-               theShip.getRoomOf(thePlayer).setOption5(new Option("Ponder being the Captain", "You seem to wasting a lot of time..."));
+               Option opbuf = new Option("Ponder being the Captain");
+               opbuf.setReplyText("You seem to wasting a lot of time...");
+               theShip.getRoomOf(thePlayer).setOption5(opbuf);
             }
          }
 
