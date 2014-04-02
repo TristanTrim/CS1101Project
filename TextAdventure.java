@@ -21,12 +21,15 @@ public class TextAdventure extends JFrame implements ActionListener
    
    private JPanel panel;
    private JPanel panel_RoomText;
-   private JLabel panel_RoomText_Label;
-   private JPanel panel_GameIcon;
+   private JPanel panel_Map;
    private JPanel panel_Options;
    private JPanel panel_Items;
    private JPanel panel_Inventory;
+   private JPanel panel_MapDisplay;
+
+   private JLabel panel_RoomText_Label;   
    private JLabel label_Items;
+   private JLabel label_Map;
    
    private JButton button1;
    private JButton button2;
@@ -34,6 +37,7 @@ public class TextAdventure extends JFrame implements ActionListener
    private JButton button4;
    private JButton button5;
    private JButton[] inventory;//create buttons to display inventory
+   private JButton[] map;//create buttons to display map and current room
    
    private Player thePlayer;
    private Ship theShip;
@@ -46,21 +50,30 @@ public class TextAdventure extends JFrame implements ActionListener
       
       //create JPanels
       panel = new JPanel(new GridLayout(2,2,5,5));
+      
       panel_RoomText = new JPanel();
-      panel_GameIcon = new JPanel();
+      panel_Map = new JPanel();
+      panel_Map.setLayout(new BorderLayout());
       panel_Options = new JPanel(new GridLayout(5,1));
       panel_Items = new JPanel();
       panel_Items.setLayout(new BorderLayout());
       
-      panel_Inventory= new JPanel(new GridLayout(3,3,5,5)); 
-      label_Items = new JLabel("Inventory");
+      panel_MapDisplay=new JPanel(new GridLayout(3,3,1,1));
+      label_Map=new JLabel("Map",JLabel.CENTER); 
+      panel_Map.add(label_Map,BorderLayout.NORTH);      
+      panel_Map.add(panel_MapDisplay,BorderLayout.CENTER);
+      
+      panel_Inventory= new JPanel(new GridLayout(3,3,5,5));
+      
+      
+      label_Items = new JLabel("Inventory",JLabel.CENTER);
       panel_Items.add(label_Items,BorderLayout.NORTH);
       panel_Items.add(panel_Inventory,BorderLayout.CENTER);
       
       //colour
       panel.setBackground(Color.pink);
       panel_RoomText.setBackground(Color.pink);
-      panel_GameIcon.setBackground(Color.pink);
+      panel_Map.setBackground(Color.pink);
       panel_Options.setBackground(Color.pink);
       panel_Items.setBackground(Color.pink);
       panel_Inventory.setBackground(Color.pink);
@@ -68,16 +81,10 @@ public class TextAdventure extends JFrame implements ActionListener
       //add the panels
       add(panel);
       panel.add(panel_RoomText);
-      panel.add(panel_GameIcon);
+      panel.add(panel_Map);
       panel.add(panel_Options);
       panel.add(panel_Items);
       
-      //add Game icon
-      ImageIcon gameIcon = new ImageIcon("ensignRickyIcon.png");
-      JButton gIcon = new JButton();
-      gIcon.setBorder(BorderFactory.createEmptyBorder());
-      gIcon.setIcon(gameIcon);
-      panel_GameIcon.add(gIcon);
             
       //create and add the options buttons
       button1 = new JButton();
@@ -101,6 +108,29 @@ public class TextAdventure extends JFrame implements ActionListener
          panel_Inventory.add(inventory[i]);
       }
       
+      //create map buttons
+      map= new JButton[9];
+      for (int i=0;i<9;i++)
+      {
+         map[i] = new JButton();
+         map[i].setEnabled(false);
+         map[i].setBackground(Color.YELLOW);
+         map[i].setFont(new Font("sansserif",Font.BOLD,13));
+         map[i].setForeground(new Color(255,150,0));
+      }      
+      panel_MapDisplay.add(map[3]);
+      panel_MapDisplay.add(map[4]);
+      panel_MapDisplay.add(map[5]);
+      panel_MapDisplay.add(map[2]);
+      panel_MapDisplay.add(map[8]);
+      panel_MapDisplay.add(map[6]);
+      panel_MapDisplay.add(map[0]);
+      panel_MapDisplay.add(map[1]);
+      panel_MapDisplay.add(map[7]);
+      resetMap();
+      map[0].setText("<html>Bridge<br/>You are here.");
+      map[0].setBackground(new Color(0,0,0));
+     
       
       //create Player
       thePlayer = new Player();
@@ -227,6 +257,7 @@ public class TextAdventure extends JFrame implements ActionListener
 
         updateOptions();
         updateInventory();
+        updateMap();
 
 
    }     
@@ -256,6 +287,41 @@ public class TextAdventure extends JFrame implements ActionListener
       for (i++;i<9;i++)
       {
          inventory[i].setText("");
+      }
+   }
+   
+   public void updateMap()
+   {
+      String y="You are here";
+      boolean updated = false;
+      for (int i=0;i<9&&!updated;i++)
+      {
+         if(thePlayer.getCurrentRoom()==i)
+         {
+            resetMap();
+            map[i].setText("<html>"+map[i].getText()+"<br/>"
+               +"<font color=ff0000>"+y+"</font></html>");
+            map[i].setBackground(Color.BLACK);
+            updated=true;
+         }
+      }
+         
+         
+   }
+   
+   public void resetMap()
+   {
+      map[0].setText("Bridge");
+      map[1].setText("Ready Room");  
+      map[2].setText("Hallway");
+      map[3].setText("Holo Deck");
+      map[4].setText("Ten Forward");
+      map[5].setText("Engine Room");
+      map[6].setText("TransporterRoom");
+      map[7].setText("War Room");
+      map[8].setText("Crew Cabins");
+      for(JButton butt: map){
+         butt.setBackground(Color.YELLOW);
       }
    }
 
