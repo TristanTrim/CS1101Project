@@ -13,7 +13,6 @@ public class Ship
 {
    //instance variables
    private Room[] rooms;
-   private int currentRoom;
    
    //no arg constructor
    public Ship()
@@ -112,6 +111,10 @@ public class Ship
             "like picture frames and slippers. In one room, you can see a<br>" +
             "glass case. In it is a small, furry little creature that you<br>" +
             "recognize as being a tribble. It is sickingly cute.";            
+
+      // THIS IS WHERE ALL THE OPTIONS IN ALL THE ROOMS ARE SET!
+      // (except for the options that are dependant on variables.)
+      // (those ones are set from TextAdventure.java)
       
       //option text
       String bridgeOption3 = "";
@@ -125,7 +128,9 @@ public class Ship
       // buffer Option
       Option opbuf;
 
+
       //bridge
+
       opbuf = new Option("North");
       opbuf.setReplyText(d_hallway);
       opbuf.setChangeRoom(2);
@@ -159,6 +164,7 @@ public class Ship
 
 
       //ready room
+
       readyRoomOption3 = "She seems quite lovely. There's some writing on the picture <br>" +
          "in purple lipstick in a language that you don't understand.";
       readyRoomOption4 = "You feel important, if not a little worried you might get<br>" +
@@ -189,6 +195,7 @@ public class Ship
 
 
       //hallway
+
       opbuf = new Option("North");
       opbuf.setReplyText(d_holoDeck);
       opbuf.setChangeRoom(3);
@@ -215,6 +222,7 @@ public class Ship
 
       
       //holodeck
+
       opbuf = new Option("East");
       opbuf.setReplyText(d_tenForward);
       opbuf.setChangeRoom(4);
@@ -224,12 +232,26 @@ public class Ship
       opbuf.setReplyText(d_hallway);
       opbuf.setChangeRoom(2);
       holoDeck.setOption2(opbuf);
+
+      opbuf = new Option("Listen to lecture");
+      opbuf.setReplyText("\"Pointers, class, as you know are "
+			+"the magnitized needles that you use<br>"
+			+"for changing the state of transistors"
+			+" in the computer memory\"<br>"
+			+"Wow. The fidelity with which they recreate"
+			+" the past is amazing.");
       holoDeck.setOption3(opbuf);
+      opbuf = new Option("Talk to student");
+      opbuf.setReplyText("\"I'm just here because girls swoon over"
+			+" computer science majors.\"");
       holoDeck.setOption4(opbuf);
+      opbuf = new Option("Is that a test being handed out?");
+      opbuf.setReplyText("You'd better get out of here.");
       holoDeck.setOption5(opbuf);
 
       
       //ten forward
+
       opbuf = new Option("West");
       opbuf.setReplyText(d_holoDeck);
       opbuf.setChangeRoom(3);
@@ -244,10 +266,25 @@ public class Ship
       opbuf.setReplyText(d_crewCabins);
       opbuf.setChangeRoom(8);
       tenForward.setOption3(opbuf);
+      opbuf = new Option("Play 3d chess with Bones");
+      opbuf.setReplyText("You play chess with the doctor.<br>"
+			+"He seems happy for the chance to rant.<br>\"The real problem is not"
+			+" getting authorization, but<br>actually getting lab rats shipped"
+			+" to a starship on deployment.\"<br>You move a chesspiece"
+			+" from one board to another.<br>This game is hard."
+			+"<br>\"If only there were already some small fuzzy animal"
+			+"<br>on board.\"<br>Bones takes a gulp of his drink and moves"
+			+"a chesspiece.<br>\"Oh, it looks like that's checkmate. You're"
+			+"improving though.\""
+	);
       tenForward.setOption4(opbuf);
+      opbuf = new Option("Look out window");
+      opbuf.setReplyText("Look at all those stars. You wonder if I could see the klingon ship<br>from here.");
       tenForward.setOption5(opbuf);
 
+
       //engine room
+
       opbuf = new Option("West");
       opbuf.setReplyText(d_tenForward);
       opbuf.setChangeRoom(4);
@@ -257,12 +294,22 @@ public class Ship
       opbuf.setReplyText(d_transporterRoom);
       opbuf.setChangeRoom(6);
       engineRoom.setOption2(opbuf);
+      opbuf = new Option("Listen to engine");
+      opbuf.setReplyText("The warp core wubs soothingly.");
       engineRoom.setOption3(opbuf);
+      opbuf = new Option("Examine box");
+      opbuf.setReplyText("Yup. It's definitely broken.<br>Actually,"
+			+"I think I could fix this if I had a small"
+			+"<br>piece of metal to wedge between these connections.");
       engineRoom.setOption4(opbuf);
+      opbuf = new Option("Do a handstand");
+      opbuf.setReplyText("This is an even less apropriate place for that"
+			+"<br>than the hallway of a starship.");
       engineRoom.setOption5(opbuf);
 
       
       //transporter room
+
       opbuf = new Option("North");
       opbuf.setReplyText(d_engineRoom);
       opbuf.setChangeRoom(5);
@@ -277,10 +324,16 @@ public class Ship
       opbuf.setReplyText(d_warRoom);
       opbuf.setChangeRoom(7);
       transporterRoom.setOption3(opbuf);
+      opbuf = new Option("Push the green button");
+      opbuf.setReplyText("The machine mixes your dna with a fly!"
+			+"<br>Just kidding. That would be silly sci-fi nonsense.");
+      opbuf.setChangeRoom(2);
       transporterRoom.setOption4(opbuf);
       transporterRoom.setOption5(opbuf);
 
+
       //war room
+
       opbuf = new Option("North");
       opbuf.setReplyText(d_transporterRoom);
       opbuf.setChangeRoom(6);
@@ -296,6 +349,7 @@ public class Ship
 
       
      //crew's cabins
+
       opbuf = new Option("North");
       opbuf.setReplyText(d_tenForward);
       opbuf.setChangeRoom(4);
@@ -310,16 +364,33 @@ public class Ship
       opbuf.setReplyText(d_transporterRoom);
       opbuf.setChangeRoom(6);
       crewCabins.setOption3(opbuf);
+      opbuf = new Option("Look at tribbles");
+      opbuf.setReplyText("Actually, these things kinda creep you out.");
       crewCabins.setOption4(opbuf);
+      opbuf = new Option("Take a tribble");
+      opbuf.setReplyText("Don't you have something better to do than play with tribbles?");
+      opbuf.addGivenItem(new Item("Tribble"));
       crewCabins.setOption5(opbuf);
 
+
+      // its over!
    
    }
 
 
-   public Room getReadyRoom()
-   {
+   //I think this is hacky at best,
+   // but it is easier than implementing
+   // something better.
+   //getting the rooms is done by TextAdventure
+   // while setting state dependant options.
+   public Room getReadyRoom(){
       return rooms[1];
+   }
+   public Room getTenForward(){
+      return rooms[4];
+   }
+   public Room getEngineRoom(){
+      return rooms[5];
    }
 
    //get currentLocation
@@ -328,8 +399,4 @@ public class Ship
       return rooms[player.getCurrentRoom()];
    }   
    
-   public void setRoomIndex(int i)
-   {
-      currentRoom = i;
-   }
 }

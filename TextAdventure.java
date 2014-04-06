@@ -182,20 +182,25 @@ public class TextAdventure extends JFrame implements ActionListener
   
    // Continuously updated
       gameRunning = true;
+
+      // some useful global game things.
+
+      boolean BonesInTenFor=true;
+      boolean BoxFixed=false;
  
       while (gameRunning)
       {
          
-	
+         System.out.print("");//I get a really weird error if I don't put this here...
+
          // check if the user is in the ready room, and if they have the Glass
          // if they do, change option 5 to putting the glass on the table.
-         System.out.print("");//I get a really weird error if I don't put this here...
          if (theShip.getReadyRoom()==(theShip.getRoomOf(thePlayer)))
          {
             boolean hasGlass = false;
             for(Item item : thePlayer.getInventory())
             {
-               if(item.equals(new Item("Glass")))
+               if(item.equals(new Item("Dirty Glass")))
                {
                   hasGlass=true;
                }
@@ -215,7 +220,7 @@ public class TextAdventure extends JFrame implements ActionListener
                Option opbuf = new Option("Put Glass on desk");
                opbuf.setReplyText(readyRoomOption5a);
                opbuf.addGivenItem(new Item("Screw"));
-               opbuf.addTakenItem(new Item("Glass"));
+               opbuf.addTakenItem(new Item("Dirty Glass"));
                theShip.getRoomOf(thePlayer).setOption5(opbuf);
             }else{
                Option opbuf = new Option("Ponder being the Captain");
@@ -223,6 +228,66 @@ public class TextAdventure extends JFrame implements ActionListener
                theShip.getRoomOf(thePlayer).setOption5(opbuf);
             }
          }
+
+
+         if (theShip.getTenForward()==(theShip.getRoomOf(thePlayer)))
+         {
+            boolean hasTribble = false;
+            for(Item item : thePlayer.getInventory())
+            {
+               if(item.equals(new Item("Tribble")))
+               {
+                  hasTribble=true;
+               }
+            }
+            if (hasTribble)
+            {
+       
+               Option opbuf = new Option("Give Bones Tribble");
+               opbuf.setReplyText("\"This will work perfectly for my expariment!\""
+				+"<br>Bones rushes off in such a hurry he leaves his"
+				+"<br>glass behind. Looks noticably dirty.");
+               opbuf.addGivenItem(new Item("Dirty Glass"));
+               opbuf.addTakenItem(new Item("Tribble"));
+               BonesInTenFor=false;
+               theShip.getRoomOf(thePlayer).setOption4(opbuf);
+            }else if(!BonesInTenFor){
+               Option opbuf = new Option("Ponder being the Captain");
+               opbuf.setReplyText("You seem to wasting a lot of time...");
+               theShip.getRoomOf(thePlayer).setOption4(opbuf);
+            }
+         }
+
+
+         if (theShip.getEngineRoom()==(theShip.getRoomOf(thePlayer)))
+         {
+            boolean hasScrew = false;
+            for(Item item : thePlayer.getInventory())
+            {
+               if(item.equals(new Item("Screw")))
+               {
+                  hasScrew=true;
+               }
+            }
+            if (hasScrew)
+            {
+       
+               Option opbuf = new Option("Fix box");
+               opbuf.setReplyText("Hacky, but working.");
+               opbuf.addGivenItem(new Item("Sense of accomplishment"));
+               opbuf.addTakenItem(new Item("Screw"));
+               BoxFixed=true;
+               theShip.getRoomOf(thePlayer).setOption4(opbuf);
+            }else if(BoxFixed){
+               Option opbuf = new Option("Admire your work");
+               opbuf.setReplyText("Ehhh... I hope someone fixes that properly.");
+               theShip.getRoomOf(thePlayer).setOption4(opbuf);
+            }
+
+         }
+
+      //end of while loop!
+      }
 
 
          
@@ -235,7 +300,6 @@ public class TextAdventure extends JFrame implements ActionListener
          break;   
       }
       
-      }
       
       
    }

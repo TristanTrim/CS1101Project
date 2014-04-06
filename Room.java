@@ -34,6 +34,8 @@ public class Room
       return description;
    }   
    
+   // gets and sets for the options.
+   // here be a blight of boredom. Do not read if you value interest.
    public void setOption1(Option s)
    {
       option1 = s;
