@@ -392,6 +392,12 @@ public class Ship
    public Room getEngineRoom(){
       return rooms[5];
    }
+   public Room getTransporterRoom(){
+      return rooms[6];
+   }
+   public Room getBridge(){
+      return rooms[0];
+   }
 
    //get currentLocation
    public Room getRoomOf(Player player)

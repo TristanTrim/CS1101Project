@@ -229,6 +229,7 @@ public class TextAdventure extends JFrame implements ActionListener
             }
          }
 
+         System.out.print("");//I get a really weird error if I don't put this here...
 
          if (theShip.getTenForward()==(theShip.getRoomOf(thePlayer)))
          {
@@ -258,6 +259,7 @@ public class TextAdventure extends JFrame implements ActionListener
             }
          }
 
+         System.out.print("");//I get a really weird error if I don't put this here...
 
          if (theShip.getEngineRoom()==(theShip.getRoomOf(thePlayer)))
          {
@@ -285,6 +287,43 @@ public class TextAdventure extends JFrame implements ActionListener
             }
 
          }
+
+         System.out.print("");//I get a really weird error if I don't put this here...
+
+         if (theShip.getTransporterRoom()==(theShip.getRoomOf(thePlayer)))
+         {
+            if (BoxFixed)
+            {
+       
+               Option opbuf = new Option("Push the button");
+               opbuf.setReplyText("Huh? I think it beamed some Tea up.");
+               opbuf.addGivenItem(new Item("Cup of Tea"));
+               theShip.getRoomOf(thePlayer).setOption4(opbuf);
+            }
+
+         }
+
+         System.out.print("");//I get a really weird error if I don't put this here...
+
+         if (theShip.getBridge()==(theShip.getRoomOf(thePlayer)))
+         {
+            if (BoxFixed)
+            {
+               String text =("The captain takes a sip of the tea. His eyes<br>"
+			+"light up. He shouts a string of command that <br>"
+			+"you don't particularly follow, and soon everyone<br>"
+			+"on the bridge is cheering! You suppose this means<br>"
+			+"that klingons will not be killing everyone on board.<br>"
+			+"<br>This also means that you have won the game!!!"
+			);
+       
+               Option opbuf = new Option("Give captain Tea");
+               opbuf.setReplyText(text);
+               opbuf.addTakenItem(new Item("Cup of Tea"));
+               theShip.getRoomOf(thePlayer).setOption4(opbuf);
+            }
+         }
+
 
       //end of while loop!
       }

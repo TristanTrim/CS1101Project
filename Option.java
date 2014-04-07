@@ -109,7 +109,7 @@ public class Option
 
       // Players can't have more than nine items!
       // We'd better check that they don't.
-      if(GivenItems.size()>9-player.getInventory().size())
+      if(GivenItems.size()-TakenItems.size()>9-player.getInventory().size())
       {
          canDo=false;
          textbuf+="Your inventory is full<br>";
